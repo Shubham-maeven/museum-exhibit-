@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Viscose Rayon Process — Birla Museum</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #1a000a;
+    color: #f0ece4;
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  .noise {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.4;
+  }
+
+  .glow {
+    position: fixed; top: -200px; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, #ec489918 0%, transparent 70%);
+    pointer-events: none; z-index: 0;
+  }
+
+  .wrapper {
+    position: relative; z-index: 1;
+    max-width: 680px; margin: 0 auto;
+    padding: 48px 24px 72px;
+  }
+
+  .museum-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #2a0015; border: 1px solid #ec489933;
+    border-radius: 100px; padding: 6px 16px;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; color: #ec4899;
+    margin-bottom: 32px;
+    animation: fadeUp 0.5s ease both;
+  }
+
+  .icon { font-size: 14px; }
+
+  .title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    font-weight: 900; line-height: 1.1;
+    color: #fff;
+    margin-bottom: 40px;
+    animation: fadeUp 0.5s 0.1s ease both;
+  }
+
+  .title span {
+    color: #ec4899;
+  }
+
+  .divider {
+    width: 48px; height: 3px;
+    background: #ec4899;
+    border-radius: 2px;
+    margin-bottom: 40px;
+    animation: expandWidth 0.6s 0.2s ease both;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px;
+    padding: 28px 32px;
+    margin-bottom: 20px;
+    animation: fadeUp 0.5s ease both;
+  }
+
+  .card:nth-child(1) { animation-delay: 0.2s; }
+  .card:nth-child(2) { animation-delay: 0.3s; }
+  .card:nth-child(3) { animation-delay: 0.4s; }
+
+  .card-label {
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: #ec4899; margin-bottom: 12px;
+  }
+
+  .card-text {
+    font-size: 1rem; line-height: 1.75;
+    color: #d4cfc5; font-weight: 300;
+  }
+
+  .fun-card {
+    background: linear-gradient(135deg, #2a0015 0%, #1a000a 100%);
+    border: 1px solid #ec489944;
+    border-radius: 16px; padding: 28px 32px;
+    margin-bottom: 20px;
+    position: relative; overflow: hidden;
+    animation: fadeUp 0.5s 0.4s ease both;
+  }
+
+  .fun-card::before {
+    content: '★'; position: absolute;
+    top: -10px; right: 20px;
+    font-size: 80px; color: #ec489911;
+    font-family: serif;
+  }
+
+  .fun-card .card-label { color: #ec4899; }
+  .fun-card .card-text { color: #e8e0d0; font-weight: 400; }
+
+  .footer {
+    margin-top: 48px; text-align: center;
+    font-size: 11px; color: rgba(255,255,255,0.2);
+    letter-spacing: 0.05em;
+    animation: fadeUp 0.5s 0.5s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes expandWidth {
+    from { width: 0; }
+    to { width: 48px; }
+  }
+</style>
+</head>
+<body>
+<div class="noise"></div>
+<div class="glow"></div>
+<div class="wrapper">
+
+  <div class="museum-badge">
+    <span class="icon">🧵</span>
+    Birla Museum, BITS Pilani &nbsp;·&nbsp; Textile Gallery
+  </div>
+
+  <h1 class="title">Viscose Rayon Process</h1>
+  <div class="divider"></div>
+
+  <div class="card">
+    <div class="card-label">What is it?</div>
+    <p class="card-text">Viscose rayon is produced when cellulose is treated with chemicals to form a viscous (thick) liquid that is spun into fibres with a silky feel.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-label">How it works</div>
+    <p class="card-text">The process: cellulose pulp → sodium hydroxide treatment → carbon disulphide → viscous solution → extruded through spinneret → acid bath solidifies it into fibre.</p>
+  </div>
+
+  <div class="fun-card">
+    <div class="card-label">Did you know?</div>
+    <p class="card-text">Viscose rayon is used in sarees, dress fabrics, linings, and medical bandages — a versatile fibre that blends nature and chemistry!</p>
+  </div>
+
+  <div class="footer">
+    Birla Museum · BITS Pilani Campus, Rajasthan · Est. 1954<br>
+    India's First Technology Museum
+  </div>
+
+</div>
+</body>
+</html>
