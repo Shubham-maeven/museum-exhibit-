@@ -57,14 +57,11 @@
     animation: fadeUp 0.5s 0.1s ease both;
   }
 
-  .title span {
-    color: #d97706;
-  }
+  .title span { color: #d97706; }
 
   .divider {
     width: 48px; height: 3px;
-    background: #d97706;
-    border-radius: 2px;
+    background: #d97706; border-radius: 2px;
     margin-bottom: 40px;
     animation: expandWidth 0.6s 0.2s ease both;
   }
@@ -72,8 +69,7 @@
   .card {
     background: rgba(255,255,255,0.03);
     border: 1px solid rgba(255,255,255,0.07);
-    border-radius: 16px;
-    padding: 28px 32px;
+    border-radius: 16px; padding: 28px 32px;
     margin-bottom: 20px;
     animation: fadeUp 0.5s ease both;
   }
@@ -112,21 +108,337 @@
   .fun-card .card-label { color: #d97706; }
   .fun-card .card-text { color: #e8e0d0; font-weight: 400; }
 
+  /* ── ANIMATION SECTION ─────────────────────────────── */
+  .anim-section {
+    margin-top: 40px; margin-bottom: 40px;
+    animation: fadeUp 0.5s 0.55s ease both;
+  }
+
+  .anim-label {
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: #d97706; margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .mine-scene {
+    position: relative;
+    width: 100%; max-width: 560px;
+    margin: 0 auto;
+    height: 420px;
+    background: linear-gradient(180deg, #1a0f00 0%, #0d0700 40%, #060400 100%);
+    border-radius: 20px;
+    border: 1px solid #d9770622;
+    overflow: hidden;
+  }
+
+  /* Sky / surface */
+  .surface {
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 60px;
+    background: linear-gradient(180deg, #1a1100 0%, #2a1a00 100%);
+    border-bottom: 3px solid #5a3d1a;
+    z-index: 2;
+  }
+
+  .surface-grass {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 8px;
+    background: repeating-linear-gradient(
+      90deg,
+      #3d2800 0px, #3d2800 4px,
+      #2a1a00 4px, #2a1a00 8px
+    );
+  }
+
+  /* Headframe (the structure above mine) */
+  .headframe {
+    position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 90px; height: 80px; z-index: 5;
+  }
+
+  .headframe svg { width: 100%; height: 100%; }
+
+  /* Main shaft */
+  .shaft {
+    position: absolute;
+    left: 50%; transform: translateX(-50%);
+    top: 55px; bottom: 0;
+    width: 60px;
+    background: linear-gradient(180deg, #1a0f00 0%, #0a0600 100%);
+    border-left: 3px solid #5a3d1a;
+    border-right: 3px solid #5a3d1a;
+    z-index: 1;
+  }
+
+  /* Shaft timber supports */
+  .timber {
+    position: absolute; left: 0; right: 0;
+    height: 4px;
+    background: #5a3d1a;
+  }
+
+  /* Cage / elevator */
+  .cage {
+    position: absolute;
+    left: 50%; transform: translateX(-50%);
+    width: 42px; height: 36px;
+    z-index: 10;
+    animation: cageDescend 6s ease-in-out infinite;
+  }
+
+  @keyframes cageDescend {
+    0%   { top: 62px; }
+    40%  { top: 300px; }
+    55%  { top: 300px; }
+    95%  { top: 62px; }
+    100% { top: 62px; }
+  }
+
+  .cage-body {
+    width: 100%; height: 100%;
+    background: #2a1800;
+    border: 2px solid #d97706;
+    border-radius: 4px;
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .cage-bars {
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      90deg,
+      transparent 0px, transparent 8px,
+      #d9770666 8px, #d9770666 10px
+    );
+  }
+
+  /* Miner in cage */
+  .miner {
+    font-size: 16px; z-index: 1;
+    position: relative;
+  }
+
+  /* Rope */
+  .rope {
+    position: absolute;
+    left: 50%; transform: translateX(-50%);
+    width: 3px;
+    background: linear-gradient(180deg, #d97706 0%, #a05c04 100%);
+    top: 0;
+    z-index: 9;
+    animation: ropeLength 6s ease-in-out infinite;
+    transform-origin: top center;
+  }
+
+  @keyframes ropeLength {
+    0%   { height: 68px; top: 10px; }
+    40%  { height: 310px; top: 10px; }
+    55%  { height: 310px; top: 10px; }
+    95%  { height: 68px; top: 10px; }
+    100% { height: 68px; top: 10px; }
+  }
+
+  /* Underground layers */
+  .layer {
+    position: absolute; left: 0; right: 0;
+    display: flex; align-items: center;
+    padding: 0 8px;
+  }
+
+  .layer-label {
+    font-size: 9px; color: #d97706aa;
+    font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .layer-line {
+    flex: 1; height: 1px;
+    background: linear-gradient(90deg, transparent, #d9770633, transparent);
+    margin: 0 6px;
+  }
+
+  /* Coal seam */
+  .coal-seam {
+    position: absolute; left: 0; right: 0;
+    background: linear-gradient(180deg, #1a1008 0%, #0f0a04 100%);
+    border-top: 2px dashed #d9770633;
+    border-bottom: 2px dashed #d9770633;
+  }
+
+  /* Coal particles floating up */
+  .coal-particle {
+    position: absolute;
+    width: 5px; height: 5px;
+    background: #2a1a00;
+    border-radius: 50%;
+    animation: particleRise linear infinite;
+    opacity: 0;
+  }
+
+  @keyframes particleRise {
+    0%   { opacity: 0; transform: translateY(0) scale(1); }
+    10%  { opacity: 0.7; }
+    90%  { opacity: 0.3; }
+    100% { opacity: 0; transform: translateY(-340px) scale(0.3); }
+  }
+
+  /* Conveyor belt at bottom */
+  .conveyor {
+    position: absolute; bottom: 20px;
+    left: 8px; right: 8px;
+    height: 18px;
+    border-radius: 9px;
+    background: #1a0f00;
+    border: 1px solid #5a3d1a;
+    overflow: hidden;
+    z-index: 3;
+  }
+
+  .conveyor-belt {
+    position: absolute; inset: 3px;
+    border-radius: 6px;
+    background: repeating-linear-gradient(
+      90deg,
+      #3d2800 0px, #3d2800 14px,
+      #5a3d1a 14px, #5a3d1a 16px
+    );
+    animation: beltMove 1.5s linear infinite;
+  }
+
+  @keyframes beltMove {
+    from { background-position: 0 0; }
+    to   { background-position: 16px 0; }
+  }
+
+  .coal-on-belt {
+    position: absolute; top: 3px;
+    width: 8px; height: 8px;
+    background: #1a1008;
+    border-radius: 50%;
+    border: 1px solid #3d2800;
+    animation: coalMove 3s linear infinite;
+  }
+
+  @keyframes coalMove {
+    from { left: 100%; }
+    to   { left: -10px; }
+  }
+
+  /* Lamp glow at shaft bottom */
+  .lamp-glow {
+    position: absolute;
+    left: 50%; bottom: 40px;
+    transform: translateX(-50%);
+    width: 80px; height: 80px;
+    background: radial-gradient(circle, #d9770620 0%, transparent 70%);
+    border-radius: 50%;
+    animation: lampPulse 2s ease-in-out infinite;
+    z-index: 2;
+  }
+
+  @keyframes lampPulse {
+    0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.6; }
+    50%       { transform: translateX(-50%) scale(1.3); opacity: 1; }
+  }
+
+  /* Depth markers on shaft sides */
+  .depth-marker {
+    position: absolute;
+    font-size: 8px; color: #d97706aa;
+    font-weight: 500;
+  }
+
+  .depth-marker.left  { left: 68px; }
+  .depth-marker.right { right: 68px; text-align: right; }
+
+  /* Status bar */
+  .status-bar {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 42px;
+    background: rgba(0,0,0,0.6);
+    border-top: 1px solid #d9770622;
+    display: flex; align-items: center;
+    justify-content: space-around;
+    padding: 0 12px;
+    z-index: 20;
+  }
+
+  .status-item {
+    display: flex; flex-direction: column;
+    align-items: center; gap: 1px;
+  }
+
+  .status-value {
+    font-size: 11px; font-weight: 500;
+    color: #d97706; font-family: monospace;
+    animation: statusFlicker 3s ease-in-out infinite;
+  }
+
+  .status-value.anim-depth {
+    animation: depthCount 6s ease-in-out infinite;
+  }
+
+  @keyframes depthCount {
+    0%, 5%   { content: '0m'; }
+    40%, 55% { }
+    95%      { }
+  }
+
+  .status-key {
+    font-size: 8px; color: #d97706aa;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+
+  @keyframes statusFlicker {
+    0%, 90%, 100% { opacity: 1; }
+    93%           { opacity: 0.4; }
+    96%           { opacity: 1; }
+    98%           { opacity: 0.6; }
+  }
+
+  /* Dust particles */
+  .dust {
+    position: absolute;
+    border-radius: 50%;
+    background: #d9770622;
+    animation: dustFloat ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  @keyframes dustFloat {
+    0%   { transform: translate(0,0) scale(1); opacity: 0; }
+    20%  { opacity: 1; }
+    80%  { opacity: 0.5; }
+    100% { transform: translate(var(--dx), var(--dy)) scale(0.3); opacity: 0; }
+  }
+
+  /* Caption below animation */
+  .anim-caption {
+    text-align: center;
+    font-size: 11px; color: rgba(255,255,255,0.3);
+    margin-top: 12px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── END ANIMATION ─────────────────────────────────── */
+
   .footer {
     margin-top: 48px; text-align: center;
     font-size: 11px; color: rgba(255,255,255,0.2);
     letter-spacing: 0.05em;
-    animation: fadeUp 0.5s 0.5s ease both;
+    animation: fadeUp 0.5s 0.6s ease both;
   }
 
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    to   { opacity: 1; transform: translateY(0); }
   }
 
   @keyframes expandWidth {
     from { width: 0; }
-    to { width: 48px; }
+    to   { width: 48px; }
   }
 </style>
 </head>
@@ -140,7 +452,7 @@
     Birla Museum, BITS Pilani &nbsp;·&nbsp; Coal Mine Gallery
   </div>
 
-  <h1 class="title">Coal Mine Shaft & Equipment</h1>
+  <h1 class="title">Coal Mine Shaft &amp; Equipment</h1>
   <div class="divider"></div>
 
   <div class="card">
@@ -158,11 +470,204 @@
     <p class="card-text">The deepest coal mine shafts in the world go over 3,000 metres underground — where temperatures can reach 60°C even without any fire!</p>
   </div>
 
+  <!-- ── ANIMATION ──────────────────────────────────── -->
+  <div class="anim-section">
+    <div class="anim-label">⚙ Live Cross-Section — Watch the Mine Work</div>
+
+    <div class="mine-scene" id="scene">
+
+      <!-- Surface -->
+      <div class="surface">
+        <div class="surface-grass"></div>
+      </div>
+
+      <!-- Headframe structure -->
+      <div class="headframe">
+        <svg viewBox="0 0 90 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Two legs -->
+          <line x1="10" y1="80" x2="45" y2="10" stroke="#5a3d1a" stroke-width="4"/>
+          <line x1="80" y1="80" x2="45" y2="10" stroke="#5a3d1a" stroke-width="4"/>
+          <!-- Cross braces -->
+          <line x1="20" y1="62" x2="70" y2="62" stroke="#5a3d1a" stroke-width="2.5"/>
+          <line x1="27" y1="44" x2="63" y2="44" stroke="#5a3d1a" stroke-width="2.5"/>
+          <line x1="33" y1="28" x2="57" y2="28" stroke="#5a3d1a" stroke-width="2"/>
+          <!-- Pulley wheel -->
+          <circle cx="45" cy="10" r="8" stroke="#d97706" stroke-width="2.5" fill="#1a0f00"/>
+          <circle cx="45" cy="10" r="3" fill="#d97706"/>
+          <!-- Wheel spokes -->
+          <line x1="45" y1="2"  x2="45" y2="18" stroke="#d97706" stroke-width="1.5"/>
+          <line x1="37" y1="10" x2="53" y2="10" stroke="#d97706" stroke-width="1.5"/>
+          <!-- Motor house -->
+          <rect x="62" y="52" width="20" height="16" fill="#2a1800" stroke="#5a3d1a" stroke-width="1.5" rx="2"/>
+          <rect x="65" y="55" width="6"  height="5"  fill="#d9770644" rx="1"/>
+        </svg>
+      </div>
+
+      <!-- Rope -->
+      <div class="rope" id="rope"></div>
+
+      <!-- Shaft -->
+      <div class="shaft" id="shaft">
+        <!-- Timber supports at intervals -->
+        <div class="timber" style="top:30px"></div>
+        <div class="timber" style="top:80px"></div>
+        <div class="timber" style="top:130px"></div>
+        <div class="timber" style="top:180px"></div>
+        <div class="timber" style="top:230px"></div>
+        <div class="timber" style="top:280px"></div>
+        <div class="timber" style="top:330px"></div>
+      </div>
+
+      <!-- Cage with miner -->
+      <div class="cage" id="cage">
+        <div class="cage-body">
+          <div class="cage-bars"></div>
+          <div class="miner">⛑️</div>
+        </div>
+      </div>
+
+      <!-- Layer labels on sides -->
+      <div class="layer" style="top:115px">
+        <span class="layer-label" style="color:#d97706aa;font-size:8px;position:absolute;left:8px">— 50m</span>
+        <span class="layer-label" style="color:#d97706aa;font-size:8px;position:absolute;right:8px">Sandstone</span>
+      </div>
+      <div class="layer" style="top:195px">
+        <span class="layer-label" style="color:#d97706aa;font-size:8px;position:absolute;left:8px">— 150m</span>
+        <span class="layer-label" style="color:#d97706aa;font-size:8px;position:absolute;right:8px">Shale</span>
+      </div>
+      <div class="layer" style="top:265px">
+        <span class="layer-label" style="color:#d97706aa;font-size:8px;position:absolute;left:8px">— 250m</span>
+        <span class="layer-label" style="color:#d97706aa;font-size:8px;position:absolute;right:8px;color:#d97706">Coal Seam ★</span>
+      </div>
+
+      <!-- Coal seam band -->
+      <div class="coal-seam" style="top:275px;height:50px;"></div>
+
+      <!-- Lamp glow at bottom of shaft -->
+      <div class="lamp-glow"></div>
+
+      <!-- Conveyor belt -->
+      <div class="conveyor">
+        <div class="conveyor-belt"></div>
+        <div class="coal-on-belt" style="animation-delay:0s"></div>
+        <div class="coal-on-belt" style="animation-delay:1s"></div>
+        <div class="coal-on-belt" style="animation-delay:2s"></div>
+      </div>
+
+      <!-- Status bar -->
+      <div class="status-bar">
+        <div class="status-item">
+          <span class="status-value" id="depthVal">0m</span>
+          <span class="status-key">Depth</span>
+        </div>
+        <div class="status-item">
+          <span class="status-value">⚡ Active</span>
+          <span class="status-key">Status</span>
+        </div>
+        <div class="status-item">
+          <span class="status-value">62°C</span>
+          <span class="status-key">Temp</span>
+        </div>
+        <div class="status-item">
+          <span class="status-value" id="coalVal">0t</span>
+          <span class="status-key">Coal/hr</span>
+        </div>
+      </div>
+
+    </div><!-- end mine-scene -->
+
+    <div class="anim-caption">
+      Cross-section of a working coal mine shaft — cage descends 300m to the coal seam
+    </div>
+  </div>
+  <!-- ── END ANIMATION ─────────────────────────────── -->
+
   <div class="footer">
     Birla Museum · BITS Pilani Campus, Rajasthan · Est. 1954<br>
     India's First Technology Museum
   </div>
 
-</div>
+</div><!-- end wrapper -->
+
+<script>
+  // ── Dust particles ──────────────────────────────────
+  const scene = document.getElementById('scene');
+
+  function spawnDust() {
+    const d = document.createElement('div');
+    d.className = 'dust';
+    const size = 3 + Math.random() * 6;
+    const x    = 100 + Math.random() * (scene.offsetWidth - 200);
+    const y    = 200 + Math.random() * 150;
+    d.style.cssText = `
+      width:${size}px; height:${size}px;
+      left:${x}px; top:${y}px;
+      --dx:${(Math.random()-0.5)*40}px;
+      --dy:${-20 - Math.random()*60}px;
+      animation-duration:${2+Math.random()*3}s;
+      animation-delay:${Math.random()*2}s;
+    `;
+    scene.appendChild(d);
+    setTimeout(() => d.remove(), 5000);
+  }
+
+  setInterval(spawnDust, 400);
+
+  // ── Coal particles rising in shaft ─────────────────
+  function spawnCoalParticle() {
+    const p = document.createElement('div');
+    p.className = 'coal-particle';
+    const shaft = document.getElementById('shaft');
+    const sx = (scene.offsetWidth - 60) / 2;
+    p.style.cssText = `
+      left:${sx + 5 + Math.random()*50}px;
+      top:${scene.offsetHeight - 60}px;
+      animation-duration:${4+Math.random()*3}s;
+      animation-delay:${Math.random()*2}s;
+    `;
+    scene.appendChild(p);
+    setTimeout(() => p.remove(), 7000);
+  }
+
+  setInterval(spawnCoalParticle, 600);
+
+  // ── Depth counter synced to cage animation ──────────
+  const depthEl = document.getElementById('depthVal');
+  const coalEl  = document.getElementById('coalVal');
+  const CYCLE   = 6000; // ms — matches CSS animation duration
+
+  let coalTonnes = 0;
+
+  function updateDepth() {
+    const t   = (Date.now() % CYCLE) / CYCLE; // 0..1
+    let depth = 0;
+
+    // Mirrors the CSS keyframes:
+    // 0–40%: descend 0→300
+    // 40–55%: hold at 300
+    // 55–95%: ascend 300→0
+    // 95–100%: hold at 0
+    if (t < 0.40) {
+      depth = Math.round((t / 0.40) * 300);
+    } else if (t < 0.55) {
+      depth = 300;
+    } else if (t < 0.95) {
+      depth = Math.round((1 - (t - 0.55) / 0.40) * 300);
+    } else {
+      depth = 0;
+    }
+
+    depthEl.textContent = depth + 'm';
+
+    // Coal counter ticks up while miner is at bottom
+    if (t >= 0.40 && t < 0.55) {
+      coalTonnes += 0.04;
+      coalEl.textContent = coalTonnes.toFixed(1) + 't';
+    }
+  }
+
+  setInterval(updateDepth, 80);
+</script>
+
 </body>
 </html>
