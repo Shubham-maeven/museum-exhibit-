@@ -57,14 +57,11 @@
     animation: fadeUp 0.5s 0.1s ease both;
   }
 
-  .title span {
-    color: #d97706;
-  }
+  .title span { color: #d97706; }
 
   .divider {
     width: 48px; height: 3px;
-    background: #d97706;
-    border-radius: 2px;
+    background: #d97706; border-radius: 2px;
     margin-bottom: 40px;
     animation: expandWidth 0.6s 0.2s ease both;
   }
@@ -112,21 +109,67 @@
   .fun-card .card-label { color: #d97706; }
   .fun-card .card-text { color: #e8e0d0; font-weight: 400; }
 
+  /* ── VIDEO SECTION ──────────────────────────────────── */
+  .video-section {
+    margin-top: 40px; margin-bottom: 8px;
+    animation: fadeUp 0.5s 0.48s ease both;
+  }
+
+  .video-label {
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: #d97706; margin-bottom: 14px;
+    text-align: center;
+  }
+
+  .video-wrapper {
+    position: relative;
+    width: 100%;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid #d9770633;
+    background: #000;
+    box-shadow: 0 0 40px #d9770615, 0 8px 32px rgba(0,0,0,0.6);
+  }
+
+  /* Amber glow top bar */
+  .video-wrapper::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #d97706, transparent);
+    z-index: 2;
+  }
+
+  .video-wrapper video {
+    width: 100%;
+    display: block;
+    border-radius: 18px;
+  }
+
+  .video-caption {
+    text-align: center;
+    font-size: 11px; color: rgba(255,255,255,0.25);
+    margin-top: 10px;
+    letter-spacing: 0.04em;
+  }
+  /* ── END VIDEO ──────────────────────────────────────── */
+
   .footer {
     margin-top: 48px; text-align: center;
     font-size: 11px; color: rgba(255,255,255,0.2);
     letter-spacing: 0.05em;
-    animation: fadeUp 0.5s 0.5s ease both;
+    animation: fadeUp 0.5s 0.6s ease both;
   }
 
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    to   { opacity: 1; transform: translateY(0); }
   }
 
   @keyframes expandWidth {
     from { width: 0; }
-    to { width: 48px; }
+    to   { width: 48px; }
   }
 </style>
 </head>
@@ -157,6 +200,35 @@
     <div class="card-label">Did you know?</div>
     <p class="card-text">Some coal seams in Jharia have been burning underground for over 100 years — an underground fire that no one has been able to extinguish!</p>
   </div>
+
+  <!-- ── VIDEO ANIMATION ──────────────────────────────── -->
+  <div class="video-section">
+    <div class="video-label">▶ Animation</div>
+    <div class="video-wrapper">
+      <video
+        autoplay
+        loop
+        muted
+        playsinline
+        poster=""
+      >
+        <!--
+          IMPORTANT: Upload your MP4 file to your GitHub repo and update
+          the src path below to match. For example, if your repo is:
+          https://github.com/shubham-maeven/museum-exhibit-
+          and you put the video in a folder called "videos/", use:
+          src="videos/make_her_look_like_any_studiou.mp4"
+
+          Or if the video is in the same folder as this HTML file:
+          src="make_her_look_like_any_studiou.mp4"
+        -->
+        <source src="make_her_look_like_any_studiou.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <p class="video-caption">Animation — Coal Fields</p>
+  </div>
+  <!-- ── END VIDEO ────────────────────────────────────── -->
 
   <div class="footer">
     Birla Museum · BITS Pilani Campus, Rajasthan · Est. 1954<br>
